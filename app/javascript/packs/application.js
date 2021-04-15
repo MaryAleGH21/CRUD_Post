@@ -13,5 +13,14 @@ Turbolinks.start()
 ActiveStorage.start()
 
 import index from '../src/index'
+import show from '../src/show'
+
 index()
+
+document.addEventListener('click', function(e){
+  if (e.target.matches('.post_show')){
+    e.preventDefault()
+      show(e)
+  }
+})
 
