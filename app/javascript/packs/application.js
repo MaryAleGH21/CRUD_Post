@@ -13,6 +13,5 @@ Turbolinks.start()
 ActiveStorage.start()
 
 import index from '../src/index'
-
 index()
 

@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
   def index
-    @post=Post.all
+    @posts = Post.all
     respond_to do |format|
       format.html
-      format.json render json: @posts
+      format.json {render json: @posts.to_json}
     end
   end
 end
