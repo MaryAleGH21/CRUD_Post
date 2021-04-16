@@ -14,7 +14,7 @@ function renderPosts(posts){
 }
 
 function createHTML(post){
-  return`<tr>
+  return`<tr id="post-${post.id}">
   <td>${post.title}</td>
   <td><a class="post_show" href="/posts/${post.id}">Show</a></td>
   <td><a class="post_edit" href="/posts/${post.id}/edit">Edit</a></td>

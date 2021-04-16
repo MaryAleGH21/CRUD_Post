@@ -7,6 +7,16 @@ class PostsController < ApplicationController
     end
   end
 
+  def create 
+    @post = Post.new(title: params[:post][:title], content: params[:post][:content])
+
+    respond_to do |format|
+      if @post.save
+        format.json {render json: @post.to_json}
+      end
+    end
+  end
+
   def show
     @post = Post.find(params[:id])
     respond_to do |format|
