@@ -13,7 +13,7 @@ function renderPosts(posts){
   return posts.map(post => createHTML(post))
 }
 
-function createHTML(post){
+ export function createHTML(post){
   return`<tr id="post-${post.id}">
   <td>${post.title}</td>
   <td><a class="post_show" href="/posts/${post.id}">Show</a></td>
