@@ -4,7 +4,7 @@ export default function() {
 }
 
 function createHTML() {
-  return `<form action="/posts/create" method="POST" id="post_create">
+  return `<form action="/posts" method="POST" id="post_create">
   <div class="field">
     <label for="post_title">Title</label><br />
     <input type="text" name="post_title">
