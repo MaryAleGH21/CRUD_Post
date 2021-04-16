@@ -24,6 +24,13 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.find(params[:id])
+    respond_to do |format|
+      format.json {render json: @post.to_json}
+    end
+  end
+
   def destroy
     @post = Post.find(params[:id])
     #@post.destroy
