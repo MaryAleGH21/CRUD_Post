@@ -18,22 +18,26 @@ import destroy from '../src/destroy'
 import _new from '../src/new'
 import create from '../src/create'
 import edit from '../src/edit'
+import update from '../src/update'
 
 index()
 
 document.addEventListener('click', function(e) {
-    e.preventDefault()
-    
+     
     if (e.target.matches('.post_show')) {
+        e.preventDefault()
         show(e)
     }
     if (e.target.matches('.post_destroy')) {
+        e.preventDefault()
         destroy(e)
     }
     if (e.target.matches('.post_new')) {
+        e.preventDefault()
         _new()
     }
     if (e.target.matches('.post_edit')) {
+        e.preventDefault()
         edit(e)
     }
 })
@@ -42,7 +46,13 @@ document.addEventListener('submit', function(e) {
     e.preventDefault()
 
     if (e.target.matches('#post_create')) {
+        e.preventDefault()
         create(e)
+    }
+
+    if (e.target.matches('#post_edit')) {
+        e.preventDefault()
+        update(e)
     }
 })
 

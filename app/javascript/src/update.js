@@ -1,9 +1,9 @@
 import {createHTML} from './index' //El createHTML se ponen en llave porque no se exporta por default
-export default function create(e) {
+export default function update(e) {
   const post = createObj(e.target)
  
   fetch(e.target.action,{
-    method: e.target.method, 
+    method: 'PUT', 
     headers: {
       'Accept': 'application/json',
       'Content-Type': 'application/json',
@@ -12,8 +12,8 @@ export default function create(e) {
     body: JSON.stringify(post)
   }).then(data => data.json()) 
     .then(post => {
-      const table = document.querySelector('#posts tbody')
-      table.insertAdjacentHTML('beforeend', createHTML(post))
+      const table = document.querySelector(`#post-${post.id}`)
+      table.innerHTML = createHTML(post)
 
       e.target.post_title.value = '' //Elimina el contenido del formulario
       e.target.post_content.value = '' 

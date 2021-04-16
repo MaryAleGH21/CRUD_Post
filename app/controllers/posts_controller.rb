@@ -7,9 +7,9 @@ class PostsController < ApplicationController
     end
   end
 
-  def create 
+  def create
     @post = Post.new(post_params)
-   
+
     respond_to do |format|
       if @post.save
         format.json {render json: @post.to_json}
@@ -31,6 +31,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def update
+    @post = Post.find(params[:id])
+    respond_to do |format|
+      if @post.update(post_params)
+        format.json {render json: @post.to_json}
+      end
+    end
+  end
+
   def destroy
     @post = Post.find(params[:id])
     #@post.destroy
@@ -42,7 +51,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :content, :id)
+    params.require(:post).permit(:title, :content, :id )
   end
-end
 
+end
